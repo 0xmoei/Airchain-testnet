@@ -292,12 +292,15 @@ sudo journalctl -u stationd -f --no-hostname -o cat
 ```
 
 <h1 align="center">Installation is Complete but How to earn Points?</h1>
-You have completed the installation process. You can import your tracker air... wallet mnemonic to Leap Wallet and connect https://points.airchains.io/ to check your points
 
-Yes, You have 0 Points now. The reason for this is that you need to extract a pod to earn points
+- You have completed the installation process. You can import your tracker air... wallet mnemonic to Leap Wallet and connect https://points.airchains.io/ to check your points
 
-Each pod is 25 transactions. Each set of 25 transactions will generate 1 pod, and you will earn 5 points from these transactions
+- Yes, You have 0 Points now. The reason for this is that you need to extract a pod to earn points
 
-The initial 100 points from the installation will become active after the first pod too
+- Each pod is 25 transactions. Each set of 25 transactions will generate 1 pod, and you will earn 5 points from these transactions
 
-You
+- The initial 100 points from the installation will become active after the 1st pod too
+
+- You have to make transactions with your evmosd privatekey
+
+- 
