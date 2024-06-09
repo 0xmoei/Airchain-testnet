@@ -138,6 +138,10 @@ s%:26660%:${G_PORT}660%g" $HOME/.evmosd/config/config.toml
 ```console
 sed -i -e 's/address = "127.0.0.1:17545"/address = "0.0.0.0:17545"/' -e 's/ws-address = "127.0.0.1:17546"/address = "0.0.0.0:17546"/' $HOME/.evmosd/config/app.toml
 ```
+```console
+sudo ufw allow 17545
+sudo ufw allow 17546
+```
 * Restart Evmos systemD
 ```console
 sudo systemctl restart rolld
@@ -301,6 +305,41 @@ sudo journalctl -u stationd -f --no-hostname -o cat
 
 - The initial 100 points from the installation will become active after the 1st pod too
 
-- You have to make transactions with your evmosd privatekey
+- You have to make transactions with your evmos station privatekey created with command `bin/bash ./scripts/local-keys.sh` in [this step](https://github.com/0xmoei/rollapp-testnet/blob/main/README.md#get-private-key-of-evmos-evm-station)
 
-- 
+- Import your private key in Metamask and "Add Network" like this(Replace IP with your server IP):
+```console
+rpc: http://IP:17545
+
+chain id: 1234
+
+ticker: FITFI
+```
+- Now you can either deploy a contract with [Remix](https://remix.ethereum.org/) or manually send transactions like trasnfer funds
+
+- You can should track your `pods creation` after each 25 transactions with this command
+```console
+sudo journalctl -u stationd -f --no-hostname -o cat
+```
+![Screenshot_48](https://github.com/0xmoei/rollapp-testnet/assets/90371338/0ca544ae-232e-4fd6-b664-5194116cbc41)
+> As you see, I verified 3 pods which means I did 75 (3x25) transactions
+
+
+- If you ever experiencing RPC error during the station tracking logs, you have to roll back 1 to 3 times to solve it
+```console
+sudo systemctl stop stationd
+cd tracks
+git pull
+go run cmd/main.go rollback
+sudo systemctl restart stationd
+sudo journalctl -u stationd -f --no-hostname -o cat
+```
+> You can repeat `go run cmd/main.go rollback` command 3 times
+
+<h1 align="center">Auto tx script</h1>
+
+> What if we don't want to f..k with metamask and rest in bed by jsut running a script to transact automatically ??
+>
+> Remember, You have to check your RPC health with Metamask "Add Network" before going through this step
+
+
