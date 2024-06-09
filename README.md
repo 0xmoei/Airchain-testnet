@@ -284,5 +284,18 @@ sudo journalctl -u stationd -f --no-hostname -o cat
 ![Screenshot_47](https://github.com/0xmoei/rollapp-testnet/assets/90371338/d44ada54-5ba9-4c46-b302-35e1ea0c6acf)
 Exit: `Ctrl+C`
 
+## Check Pod Tracker Logs
+```console
+sudo journalctl -u stationd -f --no-hostname -o cat
+```
+
 <h1 align="center">Installation is Complete but How to earn Points?</h1>
 You have completed the installation process. You can import your tracker air... wallet mnemonic to Leap Wallet and connect https://points.airchains.io/ to check your points
+
+Yes, You have 0 Points now. The reason for this is that you need to extract a pod to earn points
+
+Each pod is 25 transactions. Each set of 25 transactions will generate 1 pod, and you will earn 5 points from these transactions
+
+The initial 100 points from the installation will become active after the first pod too
+
+You
