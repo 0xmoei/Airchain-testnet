@@ -190,3 +190,19 @@ sudo systemctl enable availd
 sudo systemctl start availd
 sudo journalctl -u availd -f --no-hostname -o cat
 ```
+![image](https://github.com/0xmoei/rollapp-testnet/assets/90371338/4180722d-f0a3-4bcd-938a-d85e20106565)
+Exit: `Ctrl+C`
+
+## Save Avail DA Seed Phrase (Mnemonic)
+```console
+cat ~/.avail/identity/identity.toml
+```
+
+## Get Faucet
+> Import your Avail DA Mnemonic to the [Subwallet](https://www.subwallet.app/download.html) to create a `polkadot` wallet
+>
+> Get your address in subwallet and get Avail faucet in the [discord](https://discord.gg/airchains)
+![Screenshot_43](https://github.com/0xmoei/rollapp-testnet/assets/90371338/2d43b453-9932-4d69-9960-b03b523471ac)
+>
+> You can also get Avail faucet [here](https://faucet.avail.tools/) (Turing)
+
