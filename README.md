@@ -220,8 +220,9 @@ go mod tidy
 ## Initiate Tracks
 * Replace `Avail-Wallet-Address` with your Avail DA wallet
 * Replace `moniker-name` with your favorite name
+* I have choosen 17 in `Change Ports` step so I put 17 for the ports here, if you didn't change then you are okay
 ```console
-go run cmd/main.go init --daRpc "http://127.0.0.1:7000" --daKey "Avail-Wallet-Address" --daType "avail" --moniker "moniker-name" --stationRpc "http://127.0.0.1:8545" --stationAPI "http://127.0.0.1:8545" --stationType "evm"
+go run cmd/main.go init --daRpc "http://127.0.0.1:7000" --daKey "Avail-Wallet-Address" --daType "avail" --moniker "moniker-name" --stationRpc "http://127.0.0.1:17545" --stationAPI "http://127.0.0.1:17545" --stationType "evm"
 ```
 ![image](https://github.com/0xmoei/rollapp-testnet/assets/90371338/3b92775f-4b21-4097-b78b-b14cd0dcbab6)
 
