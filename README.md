@@ -201,7 +201,7 @@ cat ~/.avail/identity/identity.toml
 ## Get Faucet
 > Import your Avail DA Mnemonic to the [Subwallet](https://www.subwallet.app/download.html) to create a `polkadot` wallet
 >
-> Get your address in subwallet and get Avail faucet in the [discord](https://discord.gg/airchains)
+> Get your address in subwallet and get Avail faucet with `$faucet` in the [discord](https://discord.gg/airchains)
 ![Screenshot_43](https://github.com/0xmoei/rollapp-testnet/assets/90371338/2d43b453-9932-4d69-9960-b03b523471ac)
 >
 > You can also get Avail faucet [here](https://faucet.avail.tools/) (Turing)
@@ -220,12 +220,69 @@ go mod tidy
 ```console
 go run cmd/main.go init --daRpc "http://127.0.0.1:7000" --daKey "Avail-Wallet-Address" --daType "avail" --moniker "moniker-name" --stationRpc "http://127.0.0.1:8545" --stationAPI "http://127.0.0.1:8545" --stationType "evm"
 ```
+![image](https://github.com/0xmoei/rollapp-testnet/assets/90371338/3b92775f-4b21-4097-b78b-b14cd0dcbab6)
+
 
 ## Create Tracks Address
 * Replace `moniker-name`
 ```console
 go run cmd/main.go keys junction --accountName moniker-name --accountPath $HOME/.tracks/junction-accounts/keys
 ```
-> Save the output of this command
+> Save the output of this command (Mnemonic & Address)
 >
-> Use the wallet address with perfix `air` and get faucet in `switchyard-faucet` in the [discord](https://discord.gg/airchains)
+> Use wallet address with perfix `air` and get faucet with `$faucet` in `switchyard-faucet` in the [discord](https://discord.gg/airchains)
+![Screenshot_44](https://github.com/0xmoei/rollapp-testnet/assets/90371338/c7093cd8-dc19-4f9a-849a-d600fc2affff)
+
+## Run Prover
+```console
+go run cmd/main.go prover v1EVM
+```
+![image](https://github.com/0xmoei/rollapp-testnet/assets/90371338/a0d7ed7f-452d-4ea9-b8ba-ba44fd09ae6c)
+
+## Find node_id
+* Find node_id with this command and save it
+```console
+cat ~/.tracks/config/sequencer.toml
+```
+![Screenshot_45](https://github.com/0xmoei/rollapp-testnet/assets/90371338/b779d597-f793-4f3a-ad31-d8e2a0df709a)
+
+## Create Station
+* Replace `moniker-name`
+* Replace `WALLET_ADDRESS` with air... wallet you saved before
+* Replace `IP` with your VPS server IP
+* Replace `node_id` with your node id you saved
+```console
+go run cmd/main.go create-station --accountName moniker-name --accountPath $HOME/.tracks/junction-accounts/keys --jsonRPC "https://airchains-testnet-rpc.cosmonautstakes.com/" --info "EVM Track" --tracks WALLET_ADDRESS --bootstrapNode "/ip4/IP/tcp/2300/p2p/node_id"
+```
+![Screenshot_46](https://github.com/0xmoei/rollapp-testnet/assets/90371338/bb5eb443-6d7f-4767-8e29-a9acac313735)
+
+## Create Station systemD file
+```console
+sudo tee /etc/systemd/system/stationd.service > /dev/null << EOF
+[Unit]
+Description=station track service
+After=network-online.target
+[Service]
+User=root
+WorkingDirectory=/root/tracks/
+ExecStart=/usr/local/go/bin/go run cmd/main.go start
+Restart=always
+RestartSec=3
+LimitNOFILE=65535
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+## Run Station Node with systemD
+```console
+sudo systemctl daemon-reload
+sudo systemctl enable stationd
+sudo systemctl restart stationd
+sudo journalctl -u stationd -f --no-hostname -o cat
+```
+![Screenshot_47](https://github.com/0xmoei/rollapp-testnet/assets/90371338/d44ada54-5ba9-4c46-b302-35e1ea0c6acf)
+Exit: `Ctrl+C`
+
+<h1 align="center">Installation is Complete but How to earn Points?</h1>
+You have completed the installation process. You can import your tracker air... wallet mnemonic to Leap Wallet and connect https://points.airchains.io/ to check your points
