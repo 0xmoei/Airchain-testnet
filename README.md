@@ -102,6 +102,47 @@ sudo journalctl -u rolld -f --no-hostname -o cat
 > You should see the logs like below now, To exit: CTRL + C
 
 ## Get Private-key of Evmos (EVM Station)
+> Save the private key!
 ```console
 /bin/bash ./scripts/local-keys.sh
 ```
+
+## Change the ports
+> if you are running other nodes in your system, they might conflict
+>
+> it's better to change the port
+
+* we set the variable G_PORT to a favorite nubmer like 
+```console
+echo "export G_PORT="17"" >> $HOME/.bash_profile
+source $HOME/.bash_profile
+```
+* Replace 17 with the first of the ports in app.toml
+```console
+sed -i.bak -e "s%:1317%:${G_PORT}317%g;
+s%:8080%:${G_PORT}080%g;
+s%:9090%:${G_PORT}090%g;
+s%:9091%:${G_PORT}091%g;
+s%:8545%:${G_PORT}545%g;
+s%:8546%:${G_PORT}546%g;
+s%:6065%:${G_PORT}065%g" $HOME/.evmosd/config/app.toml
+```
+* Replace 17 with the first of the ports in config.toml
+```console
+sed -i.bak -e "s%:26658%:${G_PORT}658%g;
+s%:26657%:${G_PORT}657%g;
+s%:6060%:${G_PORT}060%g;
+s%:26656%:${G_PORT}656%g;
+s%^external_address = \"\"%external_address = \"$(wget -qO- eth0.me):${G_PORT}656\"%;
+s%:26660%:${G_PORT}660%g" $HOME/.evmosd/config/config.toml
+```
+* Restart Evmos systemD
+```console
+sudo systemctl restart rolld
+```
+* Check logs if you want
+```console
+sudo journalctl -u rolld -f --no-hostname -o cat
+```
+
+
