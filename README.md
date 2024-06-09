@@ -22,7 +22,7 @@
 
 <h1 align="center">Steps</h1>
 
-# Install Dependecies
+# 1- Install Dependecies
 ```console
 # Update Packages
 sudo apt update && sudo apt upgrade -y
@@ -41,7 +41,7 @@ git clone https://github.com/airchains-network/evm-station.git
 git clone https://github.com/airchains-network/tracks.git
 ```
 
-# Install Evmos (EVM Station)
+# 2- Install Evmos (EVM Station)
 ```console
 # Go to directory
 cd evm-station
@@ -155,7 +155,7 @@ sudo systemctl restart rolld
 sudo journalctl -u rolld -f --no-hostname -o cat
 ```
 
-# Install Avail DA
+# 3- Install Avail DA
 We will use Avail Turing as the DA layer. We have other options like Celestia, EigenLayer or MockDA but we choose Avail, Remember, You CANNOT change DA later
 
 #
@@ -215,7 +215,7 @@ cat ~/.avail/identity/identity.toml
 >
 > You can also get Avail faucet [here](https://faucet.avail.tools/) (Turing)
 
-# Install Tracks
+# 4- Install Tracks
 ## Go to tracks directory
 ```console
 cd $HOME
