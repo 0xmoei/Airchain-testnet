@@ -1,4 +1,8 @@
-<h1 align="center">Deploy zk-rollup via Airchains</h1>
+<h1 align="center">Deploy a zk-rollup in Airchains testnet</h1>
+
+![image](https://github.com/0xmoei/rollapp-testnet/assets/90371338/016efc74-46e7-4609-8e23-6fc861cee485)
+
+
 
 > Save all of addresses or private-keys during the installation
 >
