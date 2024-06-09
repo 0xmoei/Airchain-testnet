@@ -438,6 +438,9 @@ node corenodetx.js
 * Enter the Amount of the tokens you want to send
 * Enter the delay between txs in seconds - better you don't put less than 30 to be a normal user ;)
 
+  ![image](https://github.com/0xmoei/rollapp-testnet/assets/90371338/d68d5eb6-a49e-48f0-8936-1a18fbeaa2e3)
+
+
 #
 
   Good Luck Have Fun with the testnet and follow [Moei](https://twitter.com/0xMoei)
