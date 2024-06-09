@@ -157,6 +157,8 @@ git clone https://github.com/availproject/availup.git
 cd availup
 /bin/bash availup.sh --network "turing" --app_id 36
 ```
+![image](https://github.com/0xmoei/rollapp-testnet/assets/90371338/1783ce07-86af-44ab-81b8-5edfba31e28e)
+
 * Close it with `Ctrl+C`
 
 ## Config systemD for Avail DA
