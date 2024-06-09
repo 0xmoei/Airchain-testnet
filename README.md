@@ -73,7 +73,7 @@ VAL_KEY="mykey"
 >
 > Copy Paste the entire code below in the terminal
 >
-> We use vps so our user is root but if you use wsl you need to change user
+> We use root user of vps but if you use wsl or a custom user you must change user by replacing `root` in the code
 ```console
 sudo tee /etc/systemd/system/rolld.service > /dev/null << EOF
 [Unit]
@@ -147,4 +147,45 @@ sudo systemctl restart rolld
 sudo journalctl -u rolld -f --no-hostname -o cat
 ```
 
+## Install Avail DA
+We will use Avail Turing as the DA layer. We have other options like Celestia, EigenLayer or MockDA but we choose Avail, Remember, You CANNOT change DA later
 
+#
+
+```console
+cd $HOME
+git clone https://github.com/availproject/availup.git
+cd availup
+/bin/bash availup.sh --network "turing" --app_id 36
+```
+* Close it with `Ctrl+C`
+
+## Config systemD for Avail DA
+> Copy Paste All the code below in the terminal and Enter!
+```console
+sudo tee /etc/systemd/system/availd.service > /dev/null <<'EOF'
+[Unit]
+Description=Avail Light Node
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+User=root
+Type=simple
+Restart=always
+RestartSec=120
+ExecStart=/root/.avail/turing/bin/avail-light --network turing --app-id 36 --identity /root/.avail/identity/identity.toml
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+> We use root user of vps but if you use wsl or a custom user you must change user by replacing `root` in the code
+
+## Start Avail DA systemD
+```console
+systemctl daemon-reload 
+sudo systemctl enable availd
+sudo systemctl start availd
+sudo journalctl -u availd -f --no-hostname -o cat
+```
