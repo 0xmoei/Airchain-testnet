@@ -137,6 +137,9 @@ s%:26656%:${G_PORT}656%g;
 s%^external_address = \"\"%external_address = \"$(wget -qO- eth0.me):${G_PORT}656\"%;
 s%:26660%:${G_PORT}660%g" $HOME/.evmosd/config/config.toml
 ```
+```console
+sed -i -e 's/address = "127.0.0.1:17545"/address = "0.0.0.0:17545"/' -e 's/ws-address = "127.0.0.1:17546"/address = "0.0.0.0:17546"/' $HOME/.evmosd/config/app.toml
+```
 * Restart Evmos systemD
 ```console
 sudo systemctl restart rolld
