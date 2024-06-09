@@ -216,15 +216,15 @@ go mod tidy
 
 ## Initiate Tracks
 * Replace `Avail-Wallet-Address` with your Avail DA wallet
-* Replace `moniker` with your favorite name
+* Replace `moniker-name` with your favorite name
 ```console
-go run cmd/main.go init --daRpc "http://127.0.0.1:7000" --daKey "Avail-Wallet-Address" --daType "avail" --moniker "moniker" --stationRpc "http://127.0.0.1:8545" --stationAPI "http://127.0.0.1:8545" --stationType "evm"
+go run cmd/main.go init --daRpc "http://127.0.0.1:7000" --daKey "Avail-Wallet-Address" --daType "avail" --moniker "moniker-name" --stationRpc "http://127.0.0.1:8545" --stationAPI "http://127.0.0.1:8545" --stationType "evm"
 ```
 
 ## Create Tracks Address
-* Replace `moniker`
+* Replace `moniker-name`
 ```console
-go run cmd/main.go keys junction --accountName moniker --accountPath $HOME/.tracks/junction-accounts/keys
+go run cmd/main.go keys junction --accountName moniker-name --accountPath $HOME/.tracks/junction-accounts/keys
 ```
 > Save the output of this command
 >
