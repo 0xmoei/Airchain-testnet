@@ -100,6 +100,8 @@ sudo systemctl start rolld
 sudo journalctl -u rolld -f --no-hostname -o cat
 ```
 > You should see the logs like below now, To exit: CTRL + C
+![image](https://github.com/0xmoei/rollapp-testnet/assets/90371338/796b6ed1-6bb4-40d1-babf-9030a548badb)
+
 
 ## Get Private-key of Evmos (EVM Station)
 > Save the private key!
