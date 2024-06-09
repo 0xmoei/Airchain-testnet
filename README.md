@@ -35,7 +35,6 @@ go version
 # Clone Airchains repositories
 git clone https://github.com/airchains-network/evm-station.git
 git clone https://github.com/airchains-network/tracks.git
-git clone https://github.com/availproject/availup.git
 ```
 
 # Install Evmos (EVM Station)
