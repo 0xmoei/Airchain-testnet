@@ -301,6 +301,8 @@ sudo journalctl -u stationd -f --no-hostname -o cat
 
 <h1 align="center">Installation is Complete but How to earn Points?</h1>
 
+![image](https://github.com/0xmoei/rollapp-testnet/assets/90371338/d68d5eb6-a49e-48f0-8936-1a18fbeaa2e3)
+
 - You have completed the installation process. You can import your tracker air... wallet mnemonic to Leap Wallet and connect https://points.airchains.io/ to check your points
 
 - Yes, You have 0 Points now. The reason for this is that you need to extract a pod to earn points
@@ -439,9 +441,6 @@ node corenodetx.js
 * Enter the delay between txs in seconds - better you don't put less than 30 to be a normal user ;)
 
   ![image](https://github.com/0xmoei/Airchain-testnet/assets/90371338/81f5220b-333a-4b1e-a2f5-0ca683d99590)
-
-
-  ![image](https://github.com/0xmoei/rollapp-testnet/assets/90371338/d68d5eb6-a49e-48f0-8936-1a18fbeaa2e3)
 
 
 #
