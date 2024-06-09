@@ -206,3 +206,26 @@ cat ~/.avail/identity/identity.toml
 >
 > You can also get Avail faucet [here](https://faucet.avail.tools/) (Turing)
 
+# Install Tracks
+## Go to tracks directory
+```console
+cd $HOME
+cd tracks
+go mod tidy
+```
+
+## Initiate Tracks
+* Replace `Avail-Wallet-Address` with your Avail DA wallet
+* Replace `moniker` with your favorite name
+```console
+go run cmd/main.go init --daRpc "http://127.0.0.1:7000" --daKey "Avail-Wallet-Address" --daType "avail" --moniker "moniker" --stationRpc "http://127.0.0.1:8545" --stationAPI "http://127.0.0.1:8545" --stationType "evm"
+```
+
+## Create Tracks Address
+* Replace `moniker`
+```console
+go run cmd/main.go keys junction --accountName moniker --accountPath $HOME/.tracks/junction-accounts/keys
+```
+> Save the output of this command
+>
+> Use the wallet address with perfix `air` and get faucet in `switchyard-faucet` in the [discord](https://discord.gg/airchains)
