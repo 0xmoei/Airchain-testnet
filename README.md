@@ -108,17 +108,15 @@ sudo journalctl -u rolld -f --no-hostname -o cat
 /bin/bash ./scripts/local-keys.sh
 ```
 
-## Change the ports
-> if you are running other nodes in your system, they might conflict
->
-> it's better to change the port
+## Change Ports
+> No need to change anything in the commands, as I am just teaching you what's happening with the commands
 
-* we set the variable G_PORT to a favorite nubmer like 
+* we set the variable G_PORT to a favorite number like 17 with these commands
 ```console
 echo "export G_PORT="17"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
-* Replace 17 with the first of the ports in app.toml
+* We replace 17 with the first of the ports in app.toml with this command
 ```console
 sed -i.bak -e "s%:1317%:${G_PORT}317%g;
 s%:8080%:${G_PORT}080%g;
@@ -128,7 +126,7 @@ s%:8545%:${G_PORT}545%g;
 s%:8546%:${G_PORT}546%g;
 s%:6065%:${G_PORT}065%g" $HOME/.evmosd/config/app.toml
 ```
-* Replace 17 with the first of the ports in config.toml
+* We replace 17 with the first of the ports in config.toml with this command
 ```console
 sed -i.bak -e "s%:26658%:${G_PORT}658%g;
 s%:26657%:${G_PORT}657%g;
