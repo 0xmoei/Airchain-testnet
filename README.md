@@ -342,4 +342,100 @@ sudo journalctl -u stationd -f --no-hostname -o cat
 >
 > Remember, You have to check your RPC health with Metamask "Add Network" before going through this step
 
+### Install Dependecies
 
+```
+sudo apt install curl git wget htop tmux build-essential jq make lz4 gcc unzip screen -y
+```
+```
+sudo apt install -y curl git jq lz4 build-essential cmake perl automake autoconf libtool wget libssl-dev -y
+```
+```
+curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+```
+```
+sudo apt-get install -y nodejs
+```
+```
+sudo apt install nodejs npm 
+```
+```
+npm install -g npm@10.8.1
+```
+```
+npm install web3@1.5.3
+```
+
+### Config Script
+```
+nano corenodetx.js
+```
+* Copy & Paste the entire code below in the file
+* No need to change anything
+```console
+const readline = require('readline');
+const Web3 = require('web3');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question('Enter your private key: ', (privateKey) => {
+  rl.question('Enter recipients address: ', (toAddress) => {
+    rl.question('Enter amount of tokens you want to transfer: ', (amount) => {
+      rl.question('How many seconds do you want to repeat the proccss? if you enter 30 then it transacts per 30 seconds: ', (interval) => {
+
+        const rpcURL = "http://localhost:17545"; // or your server IP: "http://your-server-ip:17545"
+        const web3 = new Web3(new Web3.providers.HttpProvider(rpcURL));
+
+        function sendTransaction() {
+          const account = web3.eth.accounts.privateKeyToAccount(privateKey);
+          web3.eth.accounts.wallet.add(account);
+          web3.eth.defaultAccount = account.address;
+
+          const tx = {
+            from: web3.eth.defaultAccount,
+            to: toAddress,
+            value: web3.utils.toWei(amount, 'ether'),
+            gas: 21000,
+            gasPrice: web3.utils.toWei('1', 'gwei')
+          };
+
+          web3.eth.sendTransaction(tx)
+            .then(receipt => {
+              console.log('Transaction successful with hash:', receipt.transactionHash);
+            })
+            .catch(err => {
+              console.error('Error sending transaction:', err);
+            });
+        }
+
+        setInterval(sendTransaction, interval * 1000);
+
+        rl.close();
+      });
+    });
+  });
+});
+```
+> `Ctrl + X` `Y` `Enter`
+
+### Run Script
+```console
+# Open screen
+screen -S tx
+
+# Run script
+node corenodetx.js
+```
+* Enter Private-key of your Evmos Station
+* Enter Receipt Address
+* Enter the Amount of the tokens you want to send
+* Enter the delay between txs in seconds - better you don't put less than 30 to be a normal user ;)
+
+#
+
+  Good Luck Have Fun with the testnet and follow [Moei](https://twitter.com/0xMoei)
+
+#
