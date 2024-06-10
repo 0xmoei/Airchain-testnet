@@ -521,6 +521,7 @@ sudo journalctl -u stationd -f --no-hostname -o cat
 
 ### 🚨Error: ERR Error in SubmitPod Transaction Error="error code: '13' msg: 'insufficient fees;
 > If you get insufficient fees error in `sudo journalctl -u stationd -f --no-hostname -o cat` logs
+
 ![image](https://github.com/0xmoei/Airchain-testnet/assets/90371338/b4a0e3d6-9590-41ad-91d9-5ade95eb3a13)
 
 ```console
