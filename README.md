@@ -395,6 +395,9 @@ sudo apt-get purge nodejs
 sudo apt-get autoremove
 ```
 ```
+sudo dpkg -i --force-overwrite /var/cache/apt/archives/nodejs_18.20.3-1nodesource1_amd64.deb
+```
+```
 sudo rm /etc/apt/keyrings/nodesource.gpg
 sudo rm /etc/apt/sources.list.d/nodesource.list
 ```
