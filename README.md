@@ -482,6 +482,7 @@ If you ever experiencing this error during `sudo journalctl -u stationd -f --no-
 
 ### 🚨Error: Point is 0
 > If you still have 0 points, it is because the point site UI is buggy for now
+
 ![Screenshot_4](https://github.com/0xmoei/Airchain-testnet/assets/90371338/6af5f624-a667-475b-b156-eeb47f462970)
 
 ## Ensure your Airchain rollup is healthy (Check Pod Tracker Logs)
