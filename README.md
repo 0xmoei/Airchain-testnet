@@ -1,4 +1,4 @@
-![Screenshot_5](https://github.com/0xmoei/Airchain-testnet/assets/90371338/d6bdafea-0ed2-483f-8867-08637b3de901)<h1 align="center">Deploy a zk-rollup in Airchains testnet</h1>
+<h1 align="center">Deploy a zk-rollup in Airchains testnet</h1>
 
 ![image](https://github.com/0xmoei/rollapp-testnet/assets/90371338/016efc74-46e7-4609-8e23-6fc861cee485)
 
@@ -232,6 +232,7 @@ go mod tidy
 go run cmd/main.go init --daRpc "http://127.0.0.1:7000" --daKey "Avail-Wallet-Address" --daType "avail" --moniker "moniker-name" --stationRpc "http://127.0.0.1:17545" --stationAPI "http://127.0.0.1:17545" --stationType "evm"
 ```
 ![image](https://github.com/0xmoei/rollapp-testnet/assets/90371338/3b92775f-4b21-4097-b78b-b14cd0dcbab6)
+
 
 
 ## Create Tracks Address
