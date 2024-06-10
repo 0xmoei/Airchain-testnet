@@ -519,6 +519,32 @@ sudo journalctl -u stationd -f --no-hostname -o cat
 ```
 ![Screenshot_7](https://github.com/0xmoei/Airchain-testnet/assets/90371338/9a7cde83-0667-41fc-9efa-c9855f78502c)
 
+### 🚨Error: ERR Error in SubmitPod Transaction Error="error code: '13' msg: 'insufficient fees;
+> If you get insufficient fees error in `sudo journalctl -u stationd -f --no-hostname -o cat` logs
+![image](https://github.com/0xmoei/Airchain-testnet/assets/90371338/b4a0e3d6-9590-41ad-91d9-5ade95eb3a13)
+
+```console
+# Stop stationd
+systemctl stop stationd
+
+# Open submitPod.go
+nano ~/tracks/junction/submitPod.go
+
+# Find this line with Ctrl + W
+gas := utilis.GenerateRandomWithFavour(100, 300, [2]int{120, 250}, 0.7)
+
+# Replace it with this
+gas := utilis.GenerateRandomWithFavour(510, 1000, [2]int{520, 700}, 0.7)
+
+* Ctrl+X Y Enter to exit
+
+# config Stationd
+cd $HOME/tracks
+go mod tidy
+
+# Restart stationd
+systemctl restart stationd && sudo journalctl -u stationd -f --no-hostname -o cat
+```
 
 #
 
