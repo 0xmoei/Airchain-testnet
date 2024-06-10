@@ -417,9 +417,6 @@ sudo apt-get update
 sudo apt-get install -y nodejs
 ```
 ```
-Check Nodejs Version
-```
-```
 node --version
 ```
 ```
