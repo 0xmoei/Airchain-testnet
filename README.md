@@ -322,6 +322,10 @@ chain id: 1234
 
 ticker: FITFI
 ```
+
+#
+
+
 ### 🚨Error: Only if you have Error adding ChainID to Metamask
 ![Screenshot_1](https://github.com/0xmoei/Airchain-testnet/assets/90371338/43c73995-4bc7-4674-b30b-2356423732e3)
 
@@ -332,8 +336,9 @@ sed -i -e 's/address = "0.0.0.0:17546"/ws-address = "0.0.0.0:17546"/' $HOME/.evm
 ```console
 nano $HOME/.evmosd/config/app.toml
 ```
-`Ctrl+X` `Y` `Enter`
 ![Screenshot_3](https://github.com/0xmoei/Airchain-testnet/assets/90371338/731acb99-b405-4f8a-aca7-b803248f4f22)
+
+`Ctrl+X` `Y` `Enter`
 
 * Restart Evmos Node systemD after any change
 ```console
@@ -351,6 +356,7 @@ sudo journalctl -u stationd -f --no-hostname -o cat
 ![Screenshot_48](https://github.com/0xmoei/rollapp-testnet/assets/90371338/0ca544ae-232e-4fd6-b664-5194116cbc41)
 > As you see, I verified 3 pods which means I did 75 (3x25) transactions
 
+#
 
 ### 🚨Error: experiencing RPC error during the station tracking logs
 If you ever get to RPC error in `sudo journalctl -u stationd -f --no-hostname -o cat` logs, you have to roll back 1 to 3 times to solve it
@@ -363,6 +369,8 @@ sudo systemctl restart stationd
 sudo journalctl -u stationd -f --no-hostname -o cat
 ```
 > You can repeat `go run cmd/main.go rollback` command 3 times
+
+#
 
 <h1 align="center">Auto tx script</h1>
 
@@ -464,10 +472,13 @@ node corenodetx.js
 
   ![image](https://github.com/0xmoei/Airchain-testnet/assets/90371338/81f5220b-333a-4b1e-a2f5-0ca683d99590)
 
+#
+
 ### 🚨Error: submitting data to DA forbidden Method Status
 If you ever experiencing this error during `sudo journalctl -u stationd -f --no-hostname -o cat` logs, you have get more faucet for your Avail DA address
 ![Screenshot_5](https://github.com/0xmoei/Airchain-testnet/assets/90371338/74603b34-e2da-4946-8d87-2b90bf99ef37)
 
+#
 
 ### 🚨Error: Point is 0
 > If you still have 0 points, it is because the point site UI is buggy for now
