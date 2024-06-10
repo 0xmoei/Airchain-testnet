@@ -327,7 +327,7 @@ ticker: FITFI
 
 
 ### 🚨Error: Only if you have Error adding ChainID to Metamask
-![Screenshot_1](https://github.com/0xmoei/Airchain-testnet/assets/90371338/43c73995-4bc7-4674-b30b-2356423732e3)
+![Screenshot_10](https://github.com/0xmoei/Airchain-testnet/assets/90371338/5804d423-ca7d-406a-8515-93277f1d1db0)
 
 ```console
 sed -i -e 's/address = "0.0.0.0:17546"/ws-address = "0.0.0.0:17546"/' $HOME/.evmosd/config/app.toml
