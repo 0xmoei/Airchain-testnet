@@ -420,13 +420,27 @@ const rl = readline.createInterface({
 
 rl.question('Enter your private key: ', (privateKey) => {
   rl.question('Enter recipients address: ', (toAddress) => {
-    rl.question('Enter amount of tokens you want to transfer: ', (amount) => {
-      rl.question('How many seconds do you want to repeat the proccss? if you enter 30 then it transacts per 30 seconds: ', (interval) => {
+    rl.question('Enter range of amounts to transfer (e.g., 1,2): ', (amountRange) => {
+      rl.question('Enter range of intervals in seconds (e.g., 30,60): ', (intervalRange) => {
+
+        const [minAmount, maxAmount] = amountRange.split(',').map(Number);
+        const [minInterval, maxInterval] = intervalRange.split(',').map(Number);
 
         const rpcURL = "http://localhost:17545"; // or your server IP: "http://your-server-ip:17545"
         const web3 = new Web3(new Web3.providers.HttpProvider(rpcURL));
 
+        function getRandomAmount(min, max) {
+          return (Math.random() * (max - min) + min).toFixed(2);
+        }
+
+        function getRandomInterval(min, max) {
+          return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
         function sendTransaction() {
+          const amount = getRandomAmount(minAmount, maxAmount);
+          const interval = getRandomInterval(minInterval, maxInterval);
+
           const account = web3.eth.accounts.privateKeyToAccount(privateKey);
           web3.eth.accounts.wallet.add(account);
           web3.eth.defaultAccount = account.address;
@@ -441,20 +455,23 @@ rl.question('Enter your private key: ', (privateKey) => {
 
           web3.eth.sendTransaction(tx)
             .then(receipt => {
-              console.log('Transaction successful with hash:', receipt.transactionHash);
+              console.log(`Transaction successful with hash: ${receipt.transactionHash} | Amount sent: ${amount} ETH | Next transaction in: ${interval} seconds`);
             })
             .catch(err => {
               console.error('Error sending transaction:', err);
             });
+
+          setTimeout(sendTransaction, interval * 1000);
         }
 
-        setInterval(sendTransaction, interval * 1000);
+        sendTransaction();
 
         rl.close();
       });
     });
   });
 });
+
 ```
 > `Ctrl + X` `Y` `Enter`
 
