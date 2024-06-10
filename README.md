@@ -1,4 +1,4 @@
-<h1 align="center">Deploy a zk-rollup in Airchains testnet</h1>
+![Screenshot_5](https://github.com/0xmoei/Airchain-testnet/assets/90371338/d6bdafea-0ed2-483f-8867-08637b3de901)<h1 align="center">Deploy a zk-rollup in Airchains testnet</h1>
 
 ![image](https://github.com/0xmoei/rollapp-testnet/assets/90371338/016efc74-46e7-4609-8e23-6fc861cee485)
 
@@ -322,12 +322,25 @@ chain id: 1234
 
 ticker: FITFI
 ```
-## Optional: Only if you have Error adding ChainID to Metamask
+# Error: Only if you have Error adding ChainID to Metamask
+![Screenshot_1](https://github.com/0xmoei/Airchain-testnet/assets/90371338/43c73995-4bc7-4674-b30b-2356423732e3)
+
 ```console
 sed -i -e 's/address = "0.0.0.0:17546"/ws-address = "0.0.0.0:17546"/' $HOME/.evmosd/config/app.toml
 ```
-> Ensure that your `json RPC` section is like this picture
+* Ensure that your `json RPC` section is like this picture
+```console
+nano $HOME/.evmosd/config/app.toml
+```
+`Ctrl+X` `Y` `Enter`
+![Screenshot_3](https://github.com/0xmoei/Airchain-testnet/assets/90371338/731acb99-b405-4f8a-aca7-b803248f4f22)
 
+* Restart Evmos Node systemD after any change
+```console
+sudo systemctl restart rolld
+```
+
+#
 
 - Now you can either deploy a contract with [Remix](https://remix.ethereum.org/) or manually send transactions like trasnfer funds
 
@@ -339,7 +352,8 @@ sudo journalctl -u stationd -f --no-hostname -o cat
 > As you see, I verified 3 pods which means I did 75 (3x25) transactions
 
 
-- If you ever experiencing RPC error during the station tracking logs, you have to roll back 1 to 3 times to solve it
+# Error: experiencing RPC error during the station tracking logs
+If you ever get to RPC error in `sudo journalctl -u stationd -f --no-hostname -o cat` logs, you have to roll back 1 to 3 times to solve it
 ```console
 sudo systemctl stop stationd
 cd tracks
@@ -449,6 +463,22 @@ node corenodetx.js
 * Enter the delay between txs in seconds - better you don't put less than 30 to be a normal user ;)
 
   ![image](https://github.com/0xmoei/Airchain-testnet/assets/90371338/81f5220b-333a-4b1e-a2f5-0ca683d99590)
+
+# Error: submitting data to DA forbidden Method Status
+If you ever experiencing this error during `sudo journalctl -u stationd -f --no-hostname -o cat` logs, you have get more faucet for your Avail DA address
+![Screenshot_5](https://github.com/0xmoei/Airchain-testnet/assets/90371338/74603b34-e2da-4946-8d87-2b90bf99ef37)
+
+
+# Error: Point is 0
+> If you still have 0 points, it is because the point site UI is buggy for now
+![Screenshot_4](https://github.com/0xmoei/Airchain-testnet/assets/90371338/6af5f624-a667-475b-b156-eeb47f462970)
+
+## Ensure your Airchain rollup is healthy (Check Pod Tracker Logs)
+You must get new `pods` verifying after each 25 transactions like below picture
+```console
+sudo journalctl -u stationd -f --no-hostname -o cat
+```
+![Screenshot_7](https://github.com/0xmoei/Airchain-testnet/assets/90371338/9a7cde83-0667-41fc-9efa-c9855f78502c)
 
 
 #
