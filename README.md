@@ -322,6 +322,13 @@ chain id: 1234
 
 ticker: FITFI
 ```
+## Optional: Only if you have Error adding ChainID to Metamask
+```console
+sed -i -e 's/address = "0.0.0.0:17546"/ws-address = "0.0.0.0:17546"/' $HOME/.evmosd/config/app.toml
+```
+> Ensure that your `json RPC` section is like this picture
+
+
 - Now you can either deploy a contract with [Remix](https://remix.ethereum.org/) or manually send transactions like trasnfer funds
 
 - You can should track your `pods creation` after each 25 transactions with this command
