@@ -18,7 +18,7 @@
 ## System Requirements (Minimum-Recommended)
 | Ram | cpu     | disk                      |
 | :-------- | :------- | :-------------------------------- |
-| `2-4 GB`      | `2-4 Core` | `+200 GB SSD` |
+| `2-4 GB`      | `2-4 Core` | `50-200 GB SSD` |
 
 <h1 align="center">Steps</h1>
 
