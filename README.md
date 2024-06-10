@@ -476,7 +476,9 @@ node corenodetx.js
 #
 
 ### 🚨Error: submitting data to DA forbidden Method Status
-If you ever experiencing this error during `sudo journalctl -u stationd -f --no-hostname -o cat` logs, you have get more faucet for your Avail DA address
+> If you ever experiencing this error during `sudo journalctl -u stationd -f --no-hostname -o cat` logs, you have get more faucet for your Avail DA address
+>
+> I'm looking for a solution but I think we have to get $AVAIL with multiple wallets :(
 ![Screenshot_5](https://github.com/0xmoei/Airchain-testnet/assets/90371338/74603b34-e2da-4946-8d87-2b90bf99ef37)
 
 #
