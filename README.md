@@ -388,13 +388,39 @@ sudo apt install curl git wget htop tmux build-essential jq make lz4 gcc unzip s
 sudo apt install -y curl git jq lz4 build-essential cmake perl automake autoconf libtool wget libssl-dev -y
 ```
 ```
-curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt-get remove nodejs
 ```
 ```
+sudo apt-get purge nodejs
+sudo apt-get autoremove
+```
+```
+sudo rm /etc/apt/keyrings/nodesource.gpg
+sudo rm /etc/apt/sources.list.d/nodesource.list
+```
+```
+NODE_MAJOR=18
+```
+```
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg
+sudo mkdir -p /etc/apt/keyrings
+```
+```
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+```
+```
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_${NODE_MAJOR}.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+```
+```
+sudo apt-get update
 sudo apt-get install -y nodejs
 ```
 ```
-sudo apt install nodejs npm 
+Check Nodejs Version
+```
+```
+node --version
 ```
 ```
 npm install -g npm@10.8.1
