@@ -509,10 +509,10 @@ screen -S tx
 # Run script
 node corenodetx.js
 ```
-* Enter Private-key of your Evmos Station
-* Enter Receipt Address
-* Enter the Amount of the tokens you want to send
-* Enter the delay between txs in seconds - better you don't put less than 30 to be a normal user ;)
+* Enter Private-key of your Evmos Station (first node)
+* Enter Receipt Address: a random 0x.. address
+* Enter a range of Amount of the tokens you want to send: 0.0001,0.002
+* Enter a range of delays between txs in seconds: 30,60
 
   ![image](https://github.com/0xmoei/Airchain-testnet/assets/90371338/81f5220b-333a-4b1e-a2f5-0ca683d99590)
 
