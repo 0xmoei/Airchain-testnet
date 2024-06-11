@@ -446,7 +446,7 @@ const rl = readline.createInterface({
 
 rl.question('Enter your private key: ', (privateKey) => {
   rl.question('Enter recipients address: ', (toAddress) => {
-    rl.question('Enter range of amounts to transfer (e.g., 1,2): ', (amountRange) => {
+    rl.question('Enter range of amounts to transfer (e.g., 0.0001,0.002): ', (amountRange) => {
       rl.question('Enter range of intervals in seconds (e.g., 30,60): ', (intervalRange) => {
 
         const [minAmount, maxAmount] = amountRange.split(',').map(Number);
