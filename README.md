@@ -580,8 +580,11 @@ ERR Error in SubmitPod Transaction Error="waiting for next block: error while re
 nano $HOME/.tracks/config/sequencer.toml
 ```
 > Find https://airchains-testnet-rpc.cosmonautstakes.com/
+> 
 > You can search with Ctrl+W
+> 
 > Replace it with `https://junction-testnet-rpc.synergynodes.com/`
+> 
 > Save with Ctrl+X Y Enter
 
 ```console
