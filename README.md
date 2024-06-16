@@ -589,7 +589,7 @@ nano $HOME/.tracks/config/sequencer.toml
 
 ```console
 # Restart stationd
-systemctl restart stationd && sudo journalctl -u stationd -f --no-hostname -o cat
+sudo systemctl restart stationd && sudo journalctl -u stationd -f --no-hostname -o cat
 ```
 
 #
