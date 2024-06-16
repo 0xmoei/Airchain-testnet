@@ -541,6 +541,7 @@ sudo journalctl -u stationd -f --no-hostname -o cat
 
 ![image](https://github.com/0xmoei/Airchain-testnet/assets/90371338/b4a0e3d6-9590-41ad-91d9-5ade95eb3a13)
 
+
 ```console
 # Stop stationd
 systemctl stop stationd
@@ -560,6 +561,30 @@ gas := utilis.GenerateRandomWithFavour(510, 1000, [2]int{520, 700}, 0.7)
 cd $HOME/tracks
 go mod tidy
 
+# Restart stationd
+systemctl restart stationd && sudo journalctl -u stationd -f --no-hostname -o cat
+```
+
+#
+
+### 🚨Error: RPC errors in stationd logs
+```
+ERR Error in SubmitPod Transaction Error="waiting for next block: error while requesting node 'https://airchains-testnet-rpc.cosmonautstakes.com/': error in json rpc client, with http response metadata: (Status: 502 Bad Gateway, Protocol HTTP/1.1). error unmarshalling: invalid character 'e' looking for beginning of value" module=junction
+```
+![image](https://github.com/0xmoei/Airchain-testnet/assets/90371338/a134eada-e49a-4fd9-9dd4-178368e9b764)
+
+> We must change the `JunctionRPC` in `sequencer.toml` file
+
+```console
+# Open editor
+nano $HOME/.tracks/config/sequencer.toml
+```
+> Find https://airchains-testnet-rpc.cosmonautstakes.com/
+> You can search with Ctrl+W
+> Replace it with `https://junction-testnet-rpc.synergynodes.com/`
+> Save with Ctrl+X Y Enter
+
+```console
 # Restart stationd
 systemctl restart stationd && sudo journalctl -u stationd -f --no-hostname -o cat
 ```
