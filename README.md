@@ -264,7 +264,7 @@ cat ~/.tracks/config/sequencer.toml
 * Replace `IP` with your VPS server IP
 * Replace `node_id` with your node id you saved
 ```console
-go run cmd/main.go create-station --accountName moniker-name --accountPath $HOME/.tracks/junction-accounts/keys --jsonRPC "https://airchains-testnet-rpc.cosmonautstakes.com/" --info "EVM Track" --tracks WALLET_ADDRESS --bootstrapNode "/ip4/IP/tcp/2300/p2p/node_id"
+go run cmd/main.go create-station --accountName moniker-name --accountPath $HOME/.tracks/junction-accounts/keys --jsonRPC "https://airchains-rpc.kubenode.xyz/" --info "EVM Track" --tracks WALLET_ADDRESS --bootstrapNode "/ip4/IP/tcp/2300/p2p/node_id"
 ```
 ![Screenshot_46](https://github.com/0xmoei/rollapp-testnet/assets/90371338/bb5eb443-6d7f-4767-8e29-a9acac313735)
 
